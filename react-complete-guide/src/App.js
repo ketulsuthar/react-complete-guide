@@ -13,13 +13,13 @@ function App() {
 
 class App extends Component {
   render(){
-    //return(
-    //  <div className="App">
-    //    <h1>First ,React App</h1>
-    //  </div>
-    //);
+    return(
+      <div className="App">
+        <h1>First ,React App</h1>
+      </div>
+    );
 
-    return React.createElement('div',{ className:'App'}, React.createElement('h1',null,'Element created using CreateElement'))
+    //return React.createElement('div',{ className:'App'}, React.createElement('h1',null,'Element created using CreateElement'))
   }
 }
 export default App;
