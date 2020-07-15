@@ -3,15 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
 
-/*
-function App() {
-  return (
-    <div className="App">
-      <h1>First ,React App</h1>
-    </div>
-  );
-}*/
-
 class App extends Component {
   render(){
     return(
