@@ -1,23 +1,23 @@
-import React, {Component} from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
 
-class App extends Component {
+const app = props => {
 
-  state = {
+  const [personsState, setPersonsState] = useState({
     persons: [
       {name: 'Ketul',age : 30},
       {name: 'Nil',age : 27},
       {name: 'Jiger',age : 31}
     ],
-    otherState : 'Other state'
+    otherState : 'Some other value'
+  });
 
-  }
+  console.log(personsState);
 
-  switchNameHandler = () => {
+  const switchNameHandler = () => {
     //console.log("Was Clicked!");
-    this.setState({
+    setPersonsState({
       persons: [
         {name: 'Ketulkumar',age : 30},
         {name: 'Nil',age : 27},
@@ -26,18 +26,18 @@ class App extends Component {
     });
   }
 
-  render(){
-    return(
-      <div className="App">
-        <h1>First ,React App</h1>
-        <p> THis is really working.</p>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
-        <Person name= {this.state.persons[0].name} age={this.state.persons[0].age}/>
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}> My Hobbies : Cricket</Person>
-        <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
-      </div>
-    );
+
+  return(
+    <div className="App">
+      <h1>First ,React App</h1>
+      <p> THis is really working.</p>
+      <button onClick={switchNameHandler}>Switch Name</button>
+      <Person name= {personsState.persons[0].name} age={personsState.persons[0].age}/>
+      <Person name={personsState.persons[1].name} age={personsState.persons[1].age}> My Hobbies : Cricket</Person>
+      <Person name={personsState.persons[2].name} age={personsState.persons[2].age}/>
+    </div>
+  );
     //return React.createElement('div',{ className:'App'}, React.createElement('h1',null,'Element created using CreateElement'))
-  }
 }
-export default App;
+export default app;
+
