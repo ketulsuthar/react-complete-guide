@@ -8,11 +8,12 @@ class App extends Component {
     return(
       <div className="App">
         <h1>First ,React App</h1>
-        <p> THis is reall working.</p>
+        <p> THis is really working.</p>
+        <Person/>
+        <Person/>
         <Person/>
       </div>
     );
-
     //return React.createElement('div',{ className:'App'}, React.createElement('h1',null,'Element created using CreateElement'))
   }
 }
