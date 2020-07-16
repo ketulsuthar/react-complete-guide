@@ -1,9 +1,23 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Radium, {StyleRoot} from 'radium';
+import styled from 'styled-components';
 import Person from './Person/Person';
-import person from './Person/Person';
+
+
+
+const StyledButton = styled.button`
+  background-color: ${props => props.alt ? 'red' : 'green'};
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
+    color: black;
+  }
+`;
 
 class App extends Component {
 
@@ -56,20 +70,18 @@ class App extends Component {
   }
 
   render(){
-
     const style = {
-      backgroundColor : 'green',
-      color:'white',
-      font:'inherit',
-      border:'1px solid blue',
-      padding:'8px',
-      cursor:'pointer',
-      ':hover' : {
-          backgroundColor :'lightgreen',
-          color:'black'
+      backgroundColor: 'green',
+      color: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
       }
     };
-
     let persons = null;
     if(this.state.showPerson){
       persons = (
@@ -84,11 +96,6 @@ class App extends Component {
           })}
         </div> 
       );
-      style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor:'salmon',
-        color:'black'
-      }
     }
 
     let classes = [];
@@ -102,20 +109,18 @@ class App extends Component {
     }
 
     return(
-      <StyleRoot>
       <div className="App">
         <h1>First ,React App</h1>
         <p className={classes.join(' ')}> THis is really working.</p>
-        <button 
-          style={style}
-          onClick={this.togglePersonHandler}>Switch Name</button>
+        <StyledButton alt={this.state.showPersons} onClick={this.togglePersonHandler}>
+            Switch Name
+        </StyledButton>
         
         {persons}
         
       </div>
-      </StyleRoot>
     );
     //return React.createElement('div',{ className:'App'}, React.createElement('h1',null,'Element created using CreateElement'))
   }
 }
-export default Radium(App);
+export default App;
