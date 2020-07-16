@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
 import person from './Person/Person';
 
@@ -86,7 +86,7 @@ class App extends Component {
       );
       style.backgroundColor = 'red';
       style[':hover'] = {
-        backgroundColor:'lightred',
+        backgroundColor:'salmon',
         color:'black'
       }
     }
@@ -102,6 +102,7 @@ class App extends Component {
     }
 
     return(
+      <StyleRoot>
       <div className="App">
         <h1>First ,React App</h1>
         <p className={classes.join(' ')}> THis is really working.</p>
@@ -112,6 +113,7 @@ class App extends Component {
         {persons}
         
       </div>
+      </StyleRoot>
     );
     //return React.createElement('div',{ className:'App'}, React.createElement('h1',null,'Element created using CreateElement'))
   }
